@@ -201,16 +201,6 @@ var reservedXandY;
             console.log("[Drag] Original Position [left, top] : [" + ui.originalPosition.left + "," + ui.originalPosition.top + "]");
             console.log("[Drag] Position [left, top] : [" + ui.position.left + "," + ui.position.top + "]");
             // ui.helper.tooltipster('destroy');
-            // Logic for height check
-            // if(height > DEAFAULT_PIXEL){
-            //   if ((newY + height) > 500 && newY < 500){
-            //     $(".tooltipster-box").css({'border': '3px solid red'});
-            //     $("#buyPixel").attr('disabled', true);
-            //   }else{
-            //     $(".tooltipster-box").css({'border': '3px solid black'});
-            //     $("#buyPixel").attr('disabled', false);
-            //   }
-            // }
 
             var newX = ui.position.left;
             var newY = ui.position.top;
@@ -219,25 +209,9 @@ var reservedXandY;
             $("#ibpTopY").val(newY);
             $("#ibpSideX").val(newX);
 
-            // This will check new position of draggable div.
-            // var t_i = 0;
-            // var wt = width / DEAFAULT_PIXEL;
-            // var ht = height / DEAFAULT_PIXEL;
-            // var cords = [];
-            // for(var i = 0; i < wt; i++){
-            //   readyX = newX + t_i;
-            //   t_i += DEAFAULT_PIXEL;
-            //   var t_j = 0;
-            //   for(var j = 0; j < ht; j++){
-            //     readyY = newY + t_j;
-            //     cords.push([readyX, readyY]);
-            //     t_j += DEAFAULT_PIXEL;
-            //   }
-            // }
             var cordinates = checkAndGiveCorrectCords(width, height, newX, newY);
 
             checkAndSetAvailablePixelsOnBoard(cordinates);
-            // checkAndSetAvailablePixelsOnBoard(newX, newY, oldX, oldY);
 
             heightChecker(height, newY, newX);
             widthChecker(width, newX);
