@@ -1,0 +1,112 @@
+<header><p>IndianBlockchainPage</p></header>
+    <!-- NOTE: img src will come from rails-api so this is for example. -->
+
+    <!-- <img src="img/bitcoin.png" class="img hide" alt="Cinque Terre" width="60" height="60">
+    <img src="img/bitcoin.png" class="img hide" alt="Cinque Terre" width="60" height="60"> -->
+
+    <div id="app" class="container">
+
+      <div style="display:none">
+        <div id="roadmapDiv">
+          <%= image_tag 'RoadMap.jpg', class: 'img-responsive'  %>
+        </div>
+      </div>
+
+      <div style="display:none">
+        <div id="emailSubscription">
+          <%= form_tag api_v1_subscribe_email_path, id: "emailSubscribe" %>
+            <div class='pad-b10'>
+              <strong> Name:&nbsp; </strong>
+              <input type="text" name="subscription[name]" style="width:200px;" required>
+            </div>
+            <div class='pad-b10'>
+              <strong>Email:&nbsp;&nbsp;</strong>
+              <input type="text" name="subscription[email]" style="width:200px;" required>
+            </div>
+            <div class='center'>
+              <input type="submit" id="submitEmail" value="Submit" class='btn btn-primary'>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="s1"><p>This page intends to be a window to the Indian Blockchain ecosystem. With the blockchain startups coming up in various parts of the country; we felt that there was a need for curation of Indian blockchain startups and hence this page. You can purchase pixels from the canvas below; according to your startup’s domain and upload a logo. Blockchain enthusiasts or newbies visiting IBP would be able to click on your startup's logo and would then be redirected to your website. This is a curation webpage and we have bigger goals for future and aspire to create a healthy Blockchain ecosystem for India. Funding Goals: The fund collected through this effort will primarily go into setting up blockchain training centres for fellow Indian students and professionals (read: <%= link_to 'FAQ', faqs_index_path, class: 'blue', target: '_blank' %>, <%= link_to 'Roadmap', "#roadmapDiv", class: 'blue road-map-section' %>).</div>
+
+      <div class="container">
+
+        <div class="pad20 center"><span>100 pixels = 0.01 BTC&nbsp;&nbsp;</span><p class="inline"><a class="cta" id="purchasePixels" href="javascript:void(0)">Buy pixels</a></p></div>
+		<div>
+        	<div class="title1"><p class="center padb">Wallets/Trading/Exchange</p>
+            </div>
+            <div class="title2"><p class="center padb">Uses Blockchain As A Technology</p>
+            </div>
+            <div class="title3"><p class="center padb">Blockchain Product Development Companies</p>
+            </div>
+        </div>
+        <div class='adGrid' id='reservedImages'>
+
+          <div class="c1">
+    				<div class="sub_box1"></div>
+    				<div class="sub_box2"></div>
+    			</div>
+          <div class="c2"></div>
+          <div class="c1">
+    				<div class="sub_box2"></div>
+    				<div class="sub_box1"></div>
+    			</div>
+
+          <div id="resizeDiv" class='demo hide'></div>
+          <!-- <img src="img/bitcoin.png" class="img hide" alt="Cinque Terre" width="60" height="60"> -->
+        </div>
+        <div>
+        	<div class="title1"><p class="center padt">Ecommerce/Accept Crypto as payement</p>
+            </div>
+            <div class="title2"><p class="center padt">Uses Blockchain As A Technology</p></div>
+            <div class="title3"><p class="center padt">Community Channels or groups/Consortium/Not For Profit</p>
+            </div>
+        </div>
+      </div>
+
+
+
+      <div id="adBuy" class="hide">
+        <div class='before-buy center'>
+          <p> Selected <strong><span class='pixle-board'>20x20</span></strong> pixels on board.</p>
+          <p> Position is <strong><span class='pixle-position'>0x0</span></strong> pixels on board.</p>
+          <p><strong></strong> <button id='buyPixel' class='btn btn-success'>Buy</button></p>
+        </div>
+
+        <div class='currently-buying hide'>
+          <form id='pixelInfoForm'>
+            <div class="form-horizontal">
+              <div class="col-xs-3 text-right">
+                <label class="control-label">Email:</label>
+              </div>
+              <div class="required">
+                <input type="text" name="board[email]" id="email" style="width:150px;" class="form-control" required>
+              </div>
+              <input type="hidden" name="board[width]" id="ibpWidth"  value=20>
+              <input type="hidden" name="board[height]" id="ibpHeight" value=20>
+              <input type="hidden" name="board[top_y]" id="ibpTopY" value=0>
+              <input type="hidden" name="board[side_x]" id="ibpSideX" value=0>
+              <input type="button" id="submitInfo" value="Submit">
+            </div>
+          </form>
+          <div class='center mt-10'>
+            <p class='font-14'> Selected <strong><span class='pixle-board'>20x20</span></strong> pixels on board.</p>
+            <p class='font-14'> Position is <strong><span class='pixle-position'>0x0</span></strong> pixels on board.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+ <div class="s2 pad20"><p>Subscribe: <a href="#emailSubscription" class="blue email-section">Email</a> | <a href="#" class="blue">Telegram</a></div>
+
+      <footer>
+        <div class="s3"><p>Watch this space for phase 2 of the launch! - Phase 2 will initiate when the target fund is achieved.</div>
+        <div class="border"><div id="myBar" class="bar"><p>38%</p></div>
+        </div>
+
+
+      </footer>

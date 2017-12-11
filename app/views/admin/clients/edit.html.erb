@@ -1,0 +1,57 @@
+<%= form_for @client, url: admin_update_client_path, method: :put, html: { multipart: true, class: 'form' } do |form| %>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="inputEmail4">Email</label>
+      <%= form.text_field :email, class: 'form-control'  %>
+    </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="form-group col-md-2">
+      <label for="inputCity">width</label>
+      <%= form.number_field :width, class: 'form-control', step: 20 %>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputCity">height</label>
+      <%= form.number_field :height, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputCity">X pixel</label>
+      <%= form.number_field :side_x, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="inputCity">Y pixel</label>
+      <%= form.number_field :top_y, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputState">Status</label>
+      <%= form.select :status, options_for_select({ "Live" => 1, "Pending" => 0 }, BoardPixel.statuses[form.object.status] ), class: "form-control" %>
+    </div>
+    <div class="form-group">
+        <%= form.label :image %>
+        <%= form.file_field :image, class: 'form-control-file', id: 'post-image' %>
+        <% if form.object.image?%>
+          <%= image_tag (form.object.image.url), id: 'show-img', size: "150x120" %>
+        <% end %>
+      </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>
+
+<script>
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#show-img').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#post-image").on("change",function(){
+    readURL(this);
+  })
+</script>
