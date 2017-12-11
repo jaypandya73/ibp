@@ -23,25 +23,6 @@ var reservedXandY;
 
        const DEAFAULT_PIXEL = 20;
        const DEFAULT_BOX_WIDTH_HEIGHT = [1020, 1000];
-       // var reservedXandY = [[0,0],[20,0],[0,20],[20,20], [200,200],[200,220],[220,200],[220,220], [400,400],[400,420],[420,400],[420,420]];
-
-       // $.ajax({
-       //   type: 'GET',
-       //   cache: false,
-       //   dataType: 'json',
-       //   url: '/api/v1/board/pixels',
-       //   beforeSend() {
-       //   },
-       //   success(data) {
-       //     var x_y = checkAndGiveCorrectCords(data.width,data.height, data.left_x, data.top_y);
-       //     // console.log(reservedXandY);
-       //   },
-       //   error(jqXHR, textStatus, errorThrown) {
-       //     console.error('error');
-       //   },
-       // }).done(function(){
-       //
-       // });
 
        $.ajax({
          type: 'GET',
@@ -61,13 +42,6 @@ var reservedXandY;
            $('#reservedImages').append('<a href="https://www.blockchain.com/" target="_blank"><img src="' + key + '" height= "'+value.height+'px;" width="'+value.width+'px;" style=" top: '+value.top_y+'px; left: '+value.side_x+'px; position:absolute; overflow:hidden; white-space:nowrap; z-index:10  " /> </a>');
 
         });
-
-         // for(var i = 0; i < imgUrls.length; i++)
-         //  {
-         //     // var mt = i * 10 * DEAFAULT_PIXEL;
-         //     $('#reservedImages').append('<a href="https://www.blockchain.com/" target="_blank"><img src="' + imgUrls[i] + '" height="40px;" width="40px;" style=" top: '+mt+'px; left: '+mt+'px; position:absolute; overflow:hidden; white-space:nowrap; z-index:10  " /> </a>');
-         //
-         //  }
        });
 
        function checkAndGiveCorrectCords(width, height, newX, newY){
@@ -106,8 +80,6 @@ var reservedXandY;
               beforeSend() {
               },
               success(data) {
-                // var reservedXandY = checkAndGiveCorrectCords(data.width,data.height, data.left_x, data.top_y);
-                // console.log(reservedXandY);
               },
               error(jqXHR, textStatus, errorThrown) {
                 console.error('error');
@@ -199,52 +171,11 @@ var reservedXandY;
 
         const DEAFAULT_PIXEL = 20;
         const DEFAULT_BOX_WIDTH_HEIGHT = [1020, 1000];
-        // var imgUrls = ["/uploads/board_pixel/image/2/profile.png","img/bitcoin.png","img/bitcoin.png"];
-        //
-        // for(var i = 0; i < imgUrls.length; i++)
-        //  {
-        //     var mt = i * 10 * DEAFAULT_PIXEL;
-        //     $('#reservedImages').append('<a href="https://www.blockchain.com/" target="_blank"><img src="' + imgUrls[i] + '" height="40px;" width="40px;" style=" top: '+mt+'px; left: '+mt+'px; position:absolute; overflow:hidden; white-space:nowrap; z-index:10  " /> </a>');
-        //
-        //  }
 
         var width = DEAFAULT_PIXEL;
         var height = DEAFAULT_PIXEL;
         var new_x = 0;
         var new_y = 0;
-        // Instead of this we'll fetch x and y distances from rails-api.
-        // this is just an example.
-        // var left_x = [0, 30, 60];
-        // var top_y = [0, 30, 60];
-
-
-
-
-        // var reservedXandY = [[0,0],[20,0],[0,20],[20,20], [200,200],[200,220],[220,200],[220,220], [400,400],[400,420],[420,400],[420,420]];
-
-        // Logic for empty slot on board.
-        // This is still WIP need to furnish/refactor it later.
-        // pixelboard:
-        // for(var i = 0; i <= (DEFAULT_BOX_WIDTH_HEIGHT[0]/DEAFAULT_PIXEL); i++){
-        //   var t_y = i * DEAFAULT_PIXEL;
-        //   for(var j = 0; j <= (DEFAULT_BOX_WIDTH_HEIGHT[1]/DEAFAULT_PIXEL); j++){
-        //     var l_x = j * DEAFAULT_PIXEL;
-        //     var newXandY = [l_x, t_y];
-        //     console.log(reservedXandY);
-        //     if(!isNewCordinateReserved(reservedXandY, newXandY)){
-        //       new_x = l_x;
-        //       new_y = t_y;
-        //       break pixelboard;
-        //     }
-        //     // if((left_x.indexOf(l_x) === -1) && (top_y.indexOf(t_y) === -1)){
-        //     //   new_x = l_x;
-        //     //   new_y = t_y;
-        //     //   break pixelboard;
-        //     // }
-        //   }
-        // }
-        // $('#resizeDiv').css({'left': new_x,'top': new_y});
-        // $(".pixle-position").html(new_x+'x'+new_y);
 
         $('#resizeDiv').draggable({
           grid: [ DEAFAULT_PIXEL, DEAFAULT_PIXEL ],
@@ -448,28 +379,3 @@ var reservedXandY;
         });
 
       });
-
-	  // $(document).ready(function(){
-
-	// $(".fancybox").fancybox({
-	// 	openEffect  : 'none',
-	// 	closeEffect : 'none',
-	// 	iframe : {
-	// 		preload: false
-	// 	}
-	// });
-  //
-  //
-  //
-
-  //
-  //
-  //
-	// $('.fancybox-media').fancybox({
-	// 	openEffect  : 'none',
-	// 	closeEffect : 'none',
-	// 	helpers : {
-	// 		media : {}
-	// 	}
-	// });
-// });
