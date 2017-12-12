@@ -30,9 +30,7 @@ var reservedXandY;
          dataType: 'json',
          url: '/api/v1/board/fetch_reserved_images',
          data: $('#pixelInfoForm').serialize(),
-         beforeSend() {
-         },
-         error(jqXHR, textStatus, errorThrown) {
+         error: function(jqXHR, textStatus, errorThrown) {
            console.error('error');
          },
        }).done(function(data){
@@ -44,7 +42,7 @@ var reservedXandY;
         });
        });
 
-       function checkAndGiveCorrectCords(width, height, newX, newY){
+       function checkAndGiveCorrectCords(width, height, newX, newY) {
          // This will check new position of draggable div.
          var t_i = 0;
          var wt = width / DEAFAULT_PIXEL;
@@ -77,16 +75,11 @@ var reservedXandY;
               cache: false,
               dataType: 'json',
               url: '/api/v1/board/pixels',
-              beforeSend() {
-              },
-              success(data) {
-              },
-              error(jqXHR, textStatus, errorThrown) {
+              error: function(jqXHR, textStatus, errorThrown) {
                 console.error('error');
               },
             }).done(function(data){
               reservedXandY = data.reserved_pixels;
-              // console.log(reservedXandY);
               pixelboard:
               for(var i = 0; i <= (DEFAULT_BOX_WIDTH_HEIGHT[0]/DEAFAULT_PIXEL); i++){
                 var t_y = i * DEAFAULT_PIXEL;
@@ -132,10 +125,10 @@ var reservedXandY;
             dataType: 'json',
             url: '/api/v1/board/reserve_pixels',
             data: $('#pixelInfoForm').serialize(),
-            beforeSend() {
+            beforeSend: function() {
               $(this).attr('disabled', true);
             },
-            error(jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) {
               console.error('error');
             },
           }).done(function(){
@@ -145,7 +138,7 @@ var reservedXandY;
 
         $("#emailSubscribe").on("submit", function(e){
           e.preventDefault();
-          let txtFields = $("#emailSubscribe input[type=text]");
+          var txtFields = $("#emailSubscribe input[type=text]");
           $.each(txtFields, function(value ) {
             if(value === ""){
               return false;
@@ -157,10 +150,10 @@ var reservedXandY;
             dataType: 'json',
             url: $(this).attr('action'),
             data: $(this).serialize(),
-            beforeSend() {
+            beforeSend: function() {
               $("#submitEmail").attr('disabled', true);
             },
-            error(jqXHR, textStatus, errorThrown) {
+            error: function(jqXHR, textStatus, errorThrown) {
               console.error('error');
             },
           }).done(function(){
@@ -200,7 +193,6 @@ var reservedXandY;
           stop: function(event, ui) {
             console.log("[Drag] Original Position [left, top] : [" + ui.originalPosition.left + "," + ui.originalPosition.top + "]");
             console.log("[Drag] Position [left, top] : [" + ui.position.left + "," + ui.position.top + "]");
-            // ui.helper.tooltipster('destroy');
 
             var newX = ui.position.left;
             var newY = ui.position.top;
@@ -322,12 +314,10 @@ var reservedXandY;
           return false;
         }
         function isNewCordinateReserved(reservedXandY, newXandY) {
-          return (reservedXandY.some(arrVal => (newXandY[0] === arrVal[0] && newXandY[1] === arrVal[1]) ));
+          return (reservedXandY.some(function(arrVal){
+            return (newXandY[0] === arrVal[0] && newXandY[1] === arrVal[1]);
+          }));
         }
-        // return reservedXandY.some(function(arrVal) {
-        //   // return (newXandY[0] === arrVal[0] && newXandY[1] === arrVal[1]);
-        //
-        // });
 
         $(".faq-section, .email-section").fancybox({
       		maxWidth	: 400,

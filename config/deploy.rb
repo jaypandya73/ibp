@@ -1,7 +1,5 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.10.1"
-require "rvm/capistrano"
-require "bundler/capistrano"
 
 server '139.59.58.213', roles: [:web, :app, :db], primary: true
 
