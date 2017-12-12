@@ -19,10 +19,12 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
+  pool: 25
+  reconnect: false
   database: ibp_development
 
   # The specified database role being used to connect to postgres.
@@ -80,6 +82,8 @@ test:
 #
 production:
   <<: *default
+  pool: 25
+  reconnect: false
   database: ibp_production
   username: ibp
   password: <%= ENV['IBP_DATABASE_PASSWORD'] %>
