@@ -61,6 +61,8 @@ workers 2
 # Min and Max threads per worker
 threads 1, 4
 
+directory "/home/rails/ibp"
+
 app_dir = File.expand_path("../..", __FILE__)
 shared_dir = "#{app_dir}/shared"
 
