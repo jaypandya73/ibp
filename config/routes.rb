@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'faqs/index'
+  get '/faqs', to: 'faqs#index', as: :faqs_path
 
   root to: 'home#index'
 

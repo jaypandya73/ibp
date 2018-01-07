@@ -9,13 +9,31 @@
   </div>
 </div>
 
+<div style="display:none">
+  <div id="emailSubscription">
+    <%= form_tag api_v1_subscribe_email_path, id: "emailSubscribe" %>
+      <div class='pad-b10'>
+        <strong> Name:&nbsp; </strong>
+        <input type="text" name="subscription[name]" style="width:200px;" required>
+      </div>
+      <div class='pad-b10'>
+        <strong>Email:&nbsp;&nbsp;</strong>
+        <input type="text" name="subscription[email]" style="width:200px;" required>
+      </div>
+      <div class='center'>
+        <input type="submit" id="submitEmail" value="Submit" class='btn btn-primary'>
+      </div>
+    </form>
+  </div>
+</div>
+
   <div id="faqDiv" style="margin:30px;">
   <ul style="list-style:decimal; font-family:Arial, sans-serif; font-size:1em; line-height:18px; color:#000000;">
    <li><p class="padb"><strong>What is the goal of this website?</strong></p>
 <p class="padb10">The Blockchain is slowly catching up and going mainstream in the rest of the world and we feel that India still lags behind(remember we missed internet too?). Through this platform, we want to create the awareness and awakening among the Indians. The awareness itself can encourage a young Indian to learn and work on blockchain; for country's benefit.<br>
-<p class="padb">• Short term goal: Curate and get all companies on the homepage.</p>
-<p class="padb">• Midterm goal: Joining hands with different companies and preach the tech to every university in the country. Maybe draft an academic standard for Blockchain.</p>
-<p class="padb10">• Longterm goal: Train students and eager minds to work in and around Blockchain and help member companies to get first-hand access to those talents.</p>
+<p class="padb">• Short-term goal: Curate and get all companies on the homepage.</p>
+<p class="padb">• Mid-term goal: Joining hands with different companies and preach the tech to every university in the country and eventually make an academic curriculum for Blockchain.</p>
+<p class="padb10">• Long-term goal: Train students and eager minds to work in and around Blockchain and help member companies to get first-hand access to those talents.</p>
 </li>
 
 
@@ -29,11 +47,11 @@
 
 
 <li><p class="padb"><strong>Why is it paid if it's a quirky side project?</strong></p>
-<p class="padb10">We are here to curate and we felt that the paid pixel purchase was one way to curate and get the purchasers verified. If you feel that there is any other better way then you can mail us. We can maybe add that on top of this. The fund received would be used in fulfilling our goals.
+<p class="padb10">We are here to curate and we felt that the paid pixel purchase was one way to curate and get the purchasers verified. If you feel that there is any other better way then you can mail us. We can maybe add that on top of this. The fund received would be used in fulfilling goals.
 </li>
 
 <li><p class="padb"><strong>I love blockchain and I have a blockchain company in/for India but why would I pay your website?</strong></p>
-<p class="padb10">We offer pixels as an advertisement service just like you put advertisements on blogs and other websites for referral, but hey you can also put this money into someone who is trying to build the blockchain ecosystem for the country. We are just one of those evangelists trying to play our part and we are awesome too so you can try us at least. Cheers ??
+<p class="padb10">We offer pixels as an advertisement service just like you put advertisements on blogs and other websites for referral, but hey you can also put this money into someone who is trying to build the blockchain ecosystem for the country. We are just one of those evangelists trying to play our part and we are awesome too so you can try us at least, cheers!
 </li>
 
 
@@ -53,19 +71,20 @@
 <li><p class="padb"><strong>Collaboration?</strong></p>
 <p class="padb">• We are open to integrating bitcoin soft wallets APIs' for seamless payments. If you are a soft wallet company and eager to collaborate kindly mail us and we shall figure out.
 <p class="padb">• If you are a trading/exchange portal and are eager to collaborate with us; we are looking to put up BTC and ETH price tickers and graphs(We have our graphs and ticker ready which we shall put up but we can try yours.)
-<p class="padb10">• If you have some collaboration in mind and you think we can help each other then please mail us on ...<br>
+<p class="padb10">• If you have some collaboration in mind and you think we can help each other then please mail us to <%= mail_to "help@indianblockchainpage.com"%><br>
 </li>
 
 <li><p class="padb"><strong>Hey I have one more question!</strong></p>
 <p class="padb10">Please, mail us your question and we shall try to reply as soon as possible. Thanks!</li>
   </ul>
+  <h3 class='center italic'><i> "This page is inspired from milliondollarhomepage.com by Alex Tew"</i> </h3>
 </div>
 
- <div class="s2 pad20"><p>Subscribe: <a href="#emailSubscription" class="blue email-section">Email</a> | <a href="#" class="blue">Telegram</a></div>
+ <div class="s2 pad20"><p>Subscribe: <a href="#emailSubscription" class="blue email-section">Email</a> | <a href="http://www.t.me/IndianblockchainpageC" class="blue">Telegram</a></div>
 
       <footer>
         <div class="s3"><p>Watch this space for phase 2 of the launch! - Phase 2 will initiate when the target fund is achieved.</div>
-        <div class="border"><div id="myBar" class="bar"><p>38%</p></div>
+        <div class="border"><div id="myBar" class="bar faq-bar" data-reserved-pixels = "<%= @total_reserved_pxls_board %>"><p></p></div>
         </div>
 
 

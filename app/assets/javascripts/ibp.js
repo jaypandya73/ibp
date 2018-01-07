@@ -5,18 +5,26 @@ var reservedXandY;
   			var elem = document.getElementById("myBar");
   			var width = 100;
 
-        if(!loadedFirstTime && $(window).scrollTop() >= 800){
+        const scrollableHeight = $('.faq-bar').length == 0 ? 800 : 400;
+
+        if(!loadedFirstTime && $(window).scrollTop() >= scrollableHeight){
           var id = setInterval(frame, 10);
           loadedFirstTime = true
         }
+
   			function frame(){
-          if(true){
-            if (width <= 38){
-      					clearInterval(id);
-   					 }else{
-     				 	width--;
-      				elem.style.width = width + '%';
-    				}
+
+          const currentWidth = parseInt($('.adGrid').css('width')) || 1020;
+          const currentHeight = parseInt($('.adGrid').css('height')) || 1000;
+          const totalPxlPartitions = (currentWidth/20 * currentHeight/20); // 20 is our default pixel box
+          const reservedPxls = parseInt($('#myBar').attr('data-reserved-pixels'));
+          const percentage = ((reservedPxls * 100)/totalPxlPartitions);
+
+          if (width <= percentage){
+              clearInterval(id);
+           }else{
+            width--;
+            elem.style.width = width + '%';
           }
   			}
   		 });
@@ -324,7 +332,7 @@ var reservedXandY;
       		maxHeight	: 400,
       		fitToView	: false,
       		width		: '25%',
-      		height		: '25%',
+      		height		: '30%',
       		autoSize	: false,
       		closeClick	: false,
       		openEffect	: 'none',
